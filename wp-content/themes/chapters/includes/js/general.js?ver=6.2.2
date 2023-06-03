@@ -1,0 +1,75 @@
+jQuery(document).ready(function() {
+
+	var currentChap = parseInt(jQuery('#chapters #horizontal ul li.selected span').text());
+	
+    jQuery('#chapters #horizontal ul').jcarousel({
+        start: currentChap,
+        scroll: 10
+    });
+    
+    jQuery('#horizontal ul li').tipsy();
+    
+    jQuery('.content-inner .chapter-info .chapter-number').append(currentChap);
+
+	jQuery("#chapters h2").click(function () {
+		jQuery("#vertical").toggle();
+		
+		if(jQuery('#chapters h2').hasClass('active')){
+			jQuery('#chapters h2').removeClass('active');
+		}else{
+			jQuery('#chapters h2').addClass('active');
+		}
+		
+	});
+	jQuery('li#next:empty').addClass('disabled');
+	jQuery('li#next:empty').append('<a href="#">Next <small>Chapter</small></a>');
+	jQuery('li#prev:empty').addClass('disabled');
+	jQuery('li#prev:empty').append('<a href="#">Previous<small>Chapter</small></a>');
+	
+	
+	//FORMS
+	var commentname = jQuery('#author').val();
+	var url = jQuery('#url').val();
+	var email = jQuery('#email').val();
+	
+	if (commentname == '') { jQuery('#author').val('Name') };
+	if (url == '') { jQuery('#url').val('Website URL') };
+	if (email == '') { jQuery('#email').val('Email') };
+	
+	jQuery('#email').focus(function() {
+		var val = jQuery(this).val();	
+		if(val == 'Email'){ jQuery(this).val(''); }
+	});
+	
+	jQuery('#email').blur(function() {
+		var val = jQuery(this).val();	
+		if(val == ''){ jQuery(this).val('Email'); }
+	});
+	jQuery('#author').focus(function() {
+		var val = jQuery(this).val();	
+		if(val == 'Name'){ jQuery(this).val(''); }
+	});
+	
+	jQuery('#author').blur(function() {
+		var val = jQuery(this).val();	
+		if(val == ''){ jQuery(this).val('Name'); }
+	});
+	jQuery('#url').focus(function() {
+		var val = jQuery(this).val();	
+		if(val == 'Website URL'){ jQuery(this).val(''); }
+	});
+	
+	jQuery('#url').blur(function() {
+		var val = jQuery(this).val();	
+		if(val == ''){ jQuery(this).val('Website URL'); }
+	});
+	
+	//SHOW & HIDE COMMENTS
+	
+	jQuery('.post .comments span').click(function(){
+	
+		jQuery('#comments-wrap').slideToggle('slow');
+	
+	});
+	
+});

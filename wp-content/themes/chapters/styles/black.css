@@ -1,0 +1,55 @@
+/* @override http://localhost:8888/mindful-local/wp-content/themes/chapters/styles/black.css */
+
+/* BLACK STYLESHEET */
+
+body  { background: #ddd; color: #333; }
+a:link, a:visited  { color: #666; }
+a:hover { color: #000; }
+
+#chapters { background-image: url(black/chapters.png); opacity: .8; }
+#horizontal ul li.selected span  { background-image: url(black/horizontal-selected.png); }
+
+a.button, 
+a.comment-reply-link, 
+#commentform #submit,
+input.button {
+	border: 1px solid #444444;
+	border-bottom-color: #343434;
+	
+	/*Background*/
+	background: #444444; /*Fallback*/
+	background: -webkit-gradient(
+					linear,
+					left top,
+					left bottom,
+					color-stop(.2, #444444),
+					color-stop(1, #343434)
+				);
+	background: -moz-linear-gradient(
+					center top,
+					#444444 20%,
+					#343434 100%
+				);
+}
+
+a.button:hover, 
+a.button.hover, 
+a.button.active,
+a.comment-reply-link:hover, 
+#commentform #submit:hover,
+input.button:hover {
+	/*Background*/
+	background: #222222; /*Fallback*/
+	background: -webkit-gradient(
+					linear,
+					left top,
+					left bottom,
+					color-stop(.2, #222222),
+					color-stop(1, #0c0c0c)
+				);
+	background: -moz-linear-gradient(
+					center top,
+					#222222 20%,
+					#0c0c0c 100%
+				);
+}
